@@ -1,0 +1,53 @@
+{
+  "status": "local_plan_passes_simulated_caps",
+  "network": {
+    "name": "qorechain-diana",
+    "evm_chain_id": 9800
+  },
+  "payment": {
+    "sender": "0x1111111111111111111111111111111111111111",
+    "recipient": "0x2222222222222222222222222222222222222222",
+    "denom": "uqor",
+    "amount_uqor": 1000000,
+    "max_fee_uqor": 100000,
+    "worst_case_outflow_uqor": 1100000,
+    "calldata": "0x"
+  },
+  "evm_window": {
+    "blocks": 300,
+    "max_txs": 1,
+    "max_value_uqor": 1100000,
+    "allowed_targets": [
+      "0x2222222222222222222222222222222222222222"
+    ],
+    "native_only": true
+  },
+  "abstract_account_spending_rule": {
+    "enabled": true,
+    "per_tx_uqor": 1100000,
+    "daily_uqor": 2000000,
+    "allowed_denoms": [
+      "uqor"
+    ]
+  },
+  "checks": {
+    "single_native_transfer": true,
+    "fixed_recipient_allowlist_match": true,
+    "amount_plus_max_fee_within_evm_window": true,
+    "amount_plus_max_fee_within_per_tx_rule": true,
+    "amount_plus_max_fee_within_daily_rule": true,
+    "owner_exact_review_required_before_any_live_transaction": true
+  },
+  "execution": {
+    "signing_performed": false,
+    "authorization_window_opened": false,
+    "broadcast_performed": false,
+    "chain_state_changed": false,
+    "executable": false
+  },
+  "limitations": [
+    "This is local arithmetic and input validation, not QoreChain enforcement.",
+    "The abstract-account rule and EVM window are separate controls; this output proves neither exists on-chain.",
+    "Every live transaction and any owner-signed setup requires separate exact review."
+  ]
+}

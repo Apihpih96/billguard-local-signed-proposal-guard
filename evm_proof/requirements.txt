@@ -1,0 +1,4 @@
+eth-tester[py-evm]==0.14.0b1
+pytest==8.3.5
+vyper==0.4.3
+web3==7.16.0

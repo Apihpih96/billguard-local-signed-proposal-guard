@@ -1,0 +1,17 @@
+{
+  "name": "billguard-qoresign-demo",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "demo": "node demo.mjs",
+    "demo:agents": "node two_agent_demo.mjs",
+    "test": "node --test",
+    "demo:agents:http": "node two_agent_http_demo.mjs"
+  },
+  "dependencies": {
+    "@qorechain/qoresign": "0.1.1"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

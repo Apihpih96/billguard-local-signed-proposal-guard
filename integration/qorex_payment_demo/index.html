@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BillGuard · QoreX owner-reviewed payment</title>
+    <style>
+      :root { color-scheme: dark; font-family: system-ui, sans-serif; background: #101a18; color: #edf3ed; }
+      body { max-width: 42rem; margin: 3rem auto; padding: 0 1rem; }
+      main { background: #1a2823; border: 1px solid #526d60; border-radius: 1rem; padding: 1.5rem; }
+      h1 { font-size: 1.6rem; margin-top: 0; }
+      p { line-height: 1.5; color: #cfddd2; }
+      label { display: block; margin: 1rem 0 .3rem; }
+      input { box-sizing: border-box; width: 100%; padding: .8rem; color: inherit; background: #101a18; border: 1px solid #718b7e; border-radius: .5rem; }
+      button { margin-top: 1rem; padding: .8rem 1rem; border: 0; border-radius: .5rem; background: #9fc69e; color: #102019; font-weight: 700; }
+      button:disabled { opacity: .5; }
+      #review { overflow-wrap: anywhere; font-weight: 700; }
+      #status { min-height: 1.5em; }
+      .limit { font-size: .92rem; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>BillGuard · Diana wallet review</h1>
+      <p>This sends a standard native QOR transfer from your QoreX account. BillGuard’s agent caps are not enforced by this flow; QoreX is the signing authority.</p>
+      <p class="limit">Use only a disposable, funded Diana test account. Enter the sender, recipient, and amount yourself. No keys, seed phrases, or recovery codes are requested or stored.</p>
+      <form id="payment-form">
+        <label for="sender">Your Diana qor1 sender address</label>
+        <input id="sender" autocomplete="off" required>
+        <label for="recipient">Recipient qor1 address</label>
+        <input id="recipient" autocomplete="off" required>
+        <label for="amount">Amount in uqor (1 QOR = 1,000,000 uqor)</label>
+        <input id="amount" inputmode="numeric" pattern="[0-9]+" autocomplete="off" required>
+        <button type="submit">Prepare review</button>
+      </form>
+      <p id="review"></p>
+      <button id="open-wallet" type="button" disabled>Open QoreX to review this transfer</button>
+      <p id="status" role="status" aria-live="polite"></p>
+      <p class="limit">“Prepare review” sends nothing. The second button opens the QoreX signing flow; only approve in QoreX if its displayed network, recipient, amount, and fee are right. The app does not switch networks or set spending rules.</p>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
